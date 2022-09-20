@@ -34,9 +34,7 @@ The time between the transmission and reception of the signal allows us to calcu
 distance to an object = ((speed of sound in the air)*time)/2
 speed of sound in the air at 20ºC (68ºF) = 343m/s
 
-### FIGURE 01 CIRCUIT OF INTERFACING ULTRASONIC SENSOR 
-
-
+### FIGURE 01 CIRCUIT OF INTERFACING ULTRASONIC SENSOR :
 ![image](https://user-images.githubusercontent.com/36288975/166430594-5adb4ca9-5a42-4781-a7e6-7236b3766a85.png)
 
 
@@ -55,39 +53,58 @@ speed of sound in the air at 20ºC (68ºF) = 343m/s
 
 
 ### PROGRAM 
+~~~
+Name : v.charan sai
+Ref no : 212221240061
 
+// C++ code
+//
+#define trigpin 2
+#define echopin 3
+long duration;
+int distance;
+void setup()
+{
+  pinMode(trigpin,OUTPUT);
+  pinMode(echopin,INPUT);
+  Serial.begin(9600);
+}
 
+void loop()
+{
+  digitalWrite(trigpin,LOW);
+  delay(20);
+  digitalWrite(trigpin,HIGH);
+  delay(20);
+  digitalWrite(trigpin,LOW);
+  //delay(20);
+  duration=pulseIn(echopin,HIGH);
+  distance=duration*0.034/2;
+  Serial.print("distance = ");
+  Serial.print(distance);
+  Serial.println("CM");
+  delay(500);
+  
+  
+}
+~~~
 
-
-
-
-### Distance vs measurement table 
+### Distance vs measurement table: 
+![333333333333333](https://user-images.githubusercontent.com/93427201/190164173-a947a6dd-832c-4c1a-979a-f1acc43382e2.png)
 
 			
- 
-			
-			
-			
+### average error = sum/ number of readings:
 
-![image](https://user-images.githubusercontent.com/36288975/190135379-52ebacd5-ccd5-460f-a4cd-4d0ad1d9b179.png)
-
-			
-			
-			
-			
-			
-			Average error = sum/ number of readings 
- 
+Average Error=0.5+0.7+0.4+0.8+1.0=3.4/5=0.68
 
 
+### OUTPUT:
+![i](https://user-images.githubusercontent.com/93427201/190161705-0d25256e-3c4c-47ff-b991-3f4f7e4e619a.png)
+### serial monitor:
+![WhatsApp Image 2022-09-14 at 6 38 56 PM](https://user-images.githubusercontent.com/93427201/190162652-ecba38c0-2782-4d29-94b1-b5b8213cb681.jpeg)
 
 
+### RESULT:
+Thus,the distance value is measured in "CM" using ultrasonic sensor.
 
 
-
-
-### RESULTS
-
-
-
- 
